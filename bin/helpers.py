@@ -594,7 +594,9 @@ def get_all_taxo_levels(df: pd.DataFrame) -> dict[str, pd.DataFrame]:
     for level in TAXONOMY_COLS:
         taxo_levels[level] = get_level_counts(df, level)
         print(f"\nLevel: {level}")
-        notebook_display(taxo_levels[level])
+        if level == 'Genus':
+            print(taxo_levels[level][:15])
+        print(taxo_levels[level])
     return taxo_levels
 
 
